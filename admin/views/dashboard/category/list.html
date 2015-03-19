@@ -1,0 +1,62 @@
+<div ng-include src="'views/dashboard/navbar.html'"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div ng-include src="'views/dashboard/sidebar.html'"></div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <h4 class="text-center">分类管理          <form class="navbar-form navbar-right">
+        <p><a class="btn btn-primary" data-toggle="modal" data-target="#add">添加分类</a></p>
+      </form></h4>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>
+            <ol class="breadcrumb">
+              <a ng-href="#/dashboard/category/0/list/1" class="">根类</a>
+              <span ng-repeat="parent in parents track by $index">&nbsp;&raquo;&nbsp;<a ng-show="$index < parents.length - 1" ng-href="#/dashboard/category/{{ parent.id }}/list/1"
+                                                                            class="text-primary">{{parent.name}}</a>
+              <i ng-show="$index == parents.length - 1">{{parent.name}}</i></span>
+            </ol>
+          </h4>
+        </div>
+      </div>
+      <table class="table table-striped text-center">
+        <tr>
+          <th>ID</th>
+          <th>类名</th>
+          <th>子类列表</th>
+          <th>图片</th>
+          <th>操作</th>
+        </tr>
+        <tr ng-repeat="subCategory in subCategories track by $index">
+          <td>{{subCategory.id}}</td>
+          <td>{{subCategory.name}}</td>
+          <td><a ng-click="goCategory(subCategory)">子类管理</a></td>
+          <td><span ng-repeat="image in subCategory.images" class="imgs{{subCategory.sis[$index]}}">
+                            <a ng-href="{{image.url}}" target="_blank">
+                              <img ng-src="{{image.url}}" alt="{{image.hash}}" height="50px"/>
+                            </a>&nbsp;</span>
+          </td>
+          <td>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modify"
+                    ng-click="openModify(subCategory)">修改
+            </button>
+            <button class="btn btn-danger" ng-click="remove(subCategory);$event.stopPropagation()">删除</button>
+          </td>
+        </tr>
+      </table>
+      <div ng-include src="'views/dashboard/pagination.html'"></div>
+
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'views/dashboard/category/new.html'"></div>
+<div ng-include src="'views/dashboard/category/edit.html'"></div>
+
+</div>

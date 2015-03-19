@@ -1,0 +1,118 @@
+<div class="modal fade" id="modify" tabindex="-1" role="dialog"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3 class="modal-title">修改用户</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal user modify" role="form" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{user.id}}"/>
+          <div class="form-group">
+            <label for="mod-email" class="col-sm-2 control-label">email地址<br/><span>(必填)</span></label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-email" name="email"
+                     placeholder="请输入电子邮件地址" value="{{user.email}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-phone" class="col-sm-2 control-label">手机/电话<br/></label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-phone" name="phone"
+                     placeholder="请输入手机/电话号码" value="{{user.phone}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-username" class="col-sm-2 control-label">用户名</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-username" name="username"
+                     placeholder="请输入用户名" value="{{user.username}}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">性别</label>
+
+            <div class="col-sm-10">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gender" value="1"> 男
+                </label>
+                <label>
+                  <input type="radio" name="gender" value="2"> 女
+                </label>
+                <label>
+                  <input type="radio" name="gender" value="3"> 其它
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-birthday" class="col-sm-2 control-label">生日</label>
+
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="mod-birthday" name="birthday"
+                     placeholder="" value="{{user.birthday}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-score" class="col-sm-2 control-label">积分</label>
+
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="mod-score" name="score"
+                     placeholder="请输入积分" value="{{user.score}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-idcard" class="col-sm-2 control-label">身份证号</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-idcard" name="idcard"
+                     placeholder="请输入身份证号" value="{{user.idcard}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-no" class="col-sm-2 control-label">会员卡号</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-no" name="no"
+                     placeholder="请输入会员卡号" value="{{user.no}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-address" class="col-sm-2 control-label">地址</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-address"
+                     name="address" placeholder="请地址信息" value="{{user.address}}"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-intro" class="col-sm-2 control-label">介绍</label>
+
+            <div class="col-sm-10">
+                            <textarea class="form-control" id="mod-intro"
+                                      name="intro" placeholder="请输入简介">{{user.intro}}</textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="button" class="btn btn-default" ng-click="modify()">修改</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">返回</button>
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

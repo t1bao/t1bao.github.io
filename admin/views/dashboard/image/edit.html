@@ -1,0 +1,74 @@
+<div class="modal fade" id="modify" tabindex="-1" role="dialog"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3 class="modal-title">修改商品</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal merchandise modify" role="form"
+              enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{merchandise.id}}" ng-model="merchandise.id"/>
+
+          <div class="form-group">
+            <label for="mod-name" class="col-sm-2 control-label">商品名称<span>*</span></label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-name" name="name"
+                     placeholder="请输入商品名称" ng-model="merchandise.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-intro" class="col-sm-2 control-label">介绍</label>
+
+            <div class="col-sm-10">
+                            <textarea class="form-control" rows="3" id="mod-intro" name="intro"
+                                      placeholder="请输入介绍信息" ng-model="merchandise.intro"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-barcode" class="col-sm-2 control-label">条形码</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-barcode" name="barcode"
+                     placeholder="请输入条形码" ng-model="merchandise.barcode">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-brand" class="col-sm-2 control-label">品牌</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-brand" name="brand"
+                     placeholder="请输入品牌" ng-model="merchandise.brand"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-file" class="col-sm-2 control-label">图片</label>
+
+            <div class="col-sm-10">
+              <img ng-repeat="image in merchandise.images track by $index" ng-src="{{image.url}}"
+                   class="imgs{{merchandise.sis[$index]}}"
+                   ng-click="removeImage(merchandise.sis[$index],$event.target)"
+                   height="80px" style="padding: 2px"/>
+              <input type="file" class="form-control" id="mod-file"
+                     name="image" placeholder="请选择图片">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="button" class="btn btn-primary" ng-click="modify()">修改</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">返回</button>
+        <!--<button class="btn btn-primary" ng-click="add()">添加</button>-->
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

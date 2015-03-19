@@ -1,0 +1,37 @@
+<div class="modal fade" id="modify" tableindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">修改分类</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal subCategory modify" role="form" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{subCategory.id}}" ng-model="subCategory.id"/>
+          <div class="form-group">
+            <label for="mod-name" class="col-sm-2 control-label">分类名称<span>*</span></label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="mod-name" name="name" ng-model="subCategory.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mod-file" class="col-sm-2 control-label">图片</label>
+            <div class="col-sm-10">
+              <img ng-repeat="image in subCategory.images track by $index" ng-src="{{image.url}}" class="category-edit-image-{{subCategory.sis[$index]}}"
+                   ng-click="removeImage(subCategory.sis[$index])" height="80px" style="padding: 2px"/>
+              <input type="file" class="form-control" id="mod-file" name="image" placeholder="请输入图片" multiple="multiple"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="button" class="btn btn-primary" ng-click="modify(subCategory)">修改</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">返回</button>
+      </div>
+    </div>
+  </div>
+</div>
