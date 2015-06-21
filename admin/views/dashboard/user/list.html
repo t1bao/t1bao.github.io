@@ -18,11 +18,12 @@
           <th>#</th>
           <th>用户名</th>
           <th>邮箱</th>
-          <th>电话</th>
-          <th>身份证号</th>
-          <th>会员卡号</th>
-          <th>积分</th>
-          <th>住址</th>
+          <th>手机号</th>
+          <th>注册时间</th>
+          <th>注册IP</th>
+          <th>登录时间</th>
+          <th>登录IP</th>
+          <th>登录次数</th>
           <th>操作</th>
         </tr>
         <tr ng-repeat="user in users track by $index" ng-class="'user-operator-' + user.id">
@@ -30,10 +31,11 @@
           <td>{{user.username}}</td>
           <td>{{user.email}}</td>
           <td>{{user.phone}}</td>
-          <td>{{user.idcard}}</td>
-          <td>{{user.no}}</td>
-          <td>{{user.score}}</td>
-          <td>{{user.address}}</td>
+          <td>{{user.time | date}}</td>
+          <td>{{user.ip}}</td>
+          <td>{{user.last_time | date}}</td>
+          <td>{{user.last_ip}}</td>
+          <td>{{user.login_count || 0}}</td>
           <td>
             <a class="btn btn-default"
                data-toggle="modal" data-target="#modify" ng-click="openModify(user)">修改
